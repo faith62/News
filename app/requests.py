@@ -1,5 +1,5 @@
 from concurrent.futures import process
-from app import app
+
 import urllib.request, json
 from .models import New
 
