@@ -1,4 +1,5 @@
 from email import message
+from turtle import title
 from flask import render_template
 from app import app
 
@@ -9,8 +10,8 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    message='news today'
-    return render_template('index.html', message=message)
+    title = 'Home - Find the latest news'
+    return render_template('index.html', title = title)
 
 @app.route('/news/<id>')
 def movie(id):
