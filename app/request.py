@@ -1,9 +1,9 @@
 from concurrent.futures import process
 from app import app
 import urllib.request, json
-from .models import news
+from .models import new
 
-NEWS = news.News
+New = new.New
 
 #Getting api key
 api_key = app.config['NEWS_API_KEY']
@@ -28,3 +28,30 @@ def get_news(id):
             new_articles = process_articles(new_articles_list)
 
     return new_articles
+
+def process_articles(new_list):
+    '''
+    Function  that processes the new result and transform them to a list of Objects
+
+    Args:
+        new_list: A list of dictionaries that contain new details
+
+    Returns :
+        new_articles: A list of new objects
+    '''
+    new_articles = []
+    for new_item in new_list:
+        id = new_item.get('id')
+        author = new_item.get('author')
+        title = new_item.get('title')
+        description = new_item.get('description')
+        url = new_item.get('url')
+        urlToimage = new_item.get('urlToimage')
+        publishedAt = new_item.get('publishedAt')
+        content = new_item.get('content')
+
+        new_object = New(id ,author, title, description,url,urlToimage,publishedAt,content)
+        new_articles.append(new_object)
+
+    return new_articles
+
