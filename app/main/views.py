@@ -1,11 +1,11 @@
 
 from flask import render_template,request,redirect,url_for
-from app import app
+from .import main
 from app.requests import get_news, search_new
 
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -25,7 +25,7 @@ def index():
     else:       
         return render_template('index.html', title = title, bbc = bbc_news,cnn = cnn_news,business =business_news)
 
-@app.route('/search/<new_name>')
+@main.route('/search/<new_name>')
 def new(new_name):
 
     '''
