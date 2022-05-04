@@ -18,9 +18,14 @@
                     <div class="card-body text-light">
                         <!-- <li class="text-center"> -->
                             <!-- <a href="/new/{{new.id}}"> -->
-                                <h4 class="card-title">{{ new.title|truncate(10)}}</h4>
+                                <h4 class="card-title ">{{ new.title}}</h4>
                                 <p class="card-text">{{new.description }}</p>
-                                <p class="card-text">{{new.content }}</p>
+                                <p class="card-text">{{new.content | truncate(50) }}</p>
+                                <a href="{{new.url}}" class="card-text text-center text-decoration-none" >
+                                    <div class="d-grid gap-1 col-4 mx-auto">
+                                        Read More 
+                                    </div>
+                                </a>
                         </li>
                     </div>
                 </div>

@@ -1,1 +1,2 @@
-NEWS_API_KEY = 'ae3fbcab87294c7c9e05d90999fa7ad3'
+NEWS_API_KEY = '7c1b291443a9417b879c5a704f8eaa48'
+SECRET_KEY = 'Super Super secret'

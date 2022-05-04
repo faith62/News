@@ -6,7 +6,7 @@ from app.request import get_news, search_new
 
 # Views
 @app.route('/')
-def new():
+def index():
 
     '''
     View root page function that returns the index page and its data
