@@ -1,5 +1,4 @@
-from email import message
-from turtle import title
+
 from flask import render_template
 from app import app
 
@@ -19,4 +18,5 @@ def movie(id):
     '''
     View movie page function that returns the movie details page and its data
     '''
-    return render_template('news.html',id = id)
+    title = f'You are viewing {id}'
+    return render_template('news.html',title = title)
