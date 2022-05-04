@@ -29,6 +29,20 @@ def get_news(id):
 
     return new_articles
 
+def search_new(new_name):
+    search_new_url = 'https://newsapi.org/v2/everything?q={}&apiKey={}'.format(api_key,new_name)
+    with urllib.request.urlopen(search_new_url) as url:
+        search_new_data = url.read()
+        search_new_response = json.loads(search_new_data)
+
+        search_new_article = None
+
+        if search_new_response['article']:
+            search_new_list = search_new_response['articles']
+            search_new_article = process_articles(search_new_list)
+
+    return search_new_article
+
 def process_articles(new_list):
     '''
     Function  that processes the new result and transform them to a list of Objects
@@ -46,11 +60,11 @@ def process_articles(new_list):
         title = new_item.get('title')
         description = new_item.get('description')
         url = new_item.get('url')
-        urlToimage = new_item.get('urlToimage')
+        urlToImage = new_item.get('urlToImage')
         publishedAt = new_item.get('publishedAt')
         content = new_item.get('content')
 
-        new_object = New(id ,author, title, description,url,urlToimage,publishedAt,content)
+        new_object = New(id ,author, title, description,url,urlToImage,publishedAt,content)
         new_articles.append(new_object)
 
     return new_articles

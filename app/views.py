@@ -1,7 +1,7 @@
 
 from flask import render_template
 from app import app
-from app.request import get_news
+from app.request import get_news, search_new
 
 # Views
 @app.route('/')
@@ -13,15 +13,19 @@ def new():
     title = 'Home - Find the latest news'
 
     bbc_news = get_news('bbc-news')
-    bbc_sports = get_news('bbc-sport')
+    cnn_news = get_news('cnn')
+    business_news = get_news('business-insider')
     # print(bbc_news)
-    return render_template('index.html', title = title, bbc = bbc_news,bbcs = bbc_sports)
+    return render_template('index.html', title = title, bbc = bbc_news,cnn = cnn_news,business =business_news)
 
-# @app.route('/news/<id>')
-# def new(id):
+@app.route('/search/<new_name>')
+def new(new_name):
 
-#     '''
-#     View movie page function that returns the movie details page and its data
-#     '''
-#     title = f'You are viewing {id}'
-#     return render_template('news.html',title = title)
+    '''
+    View function to display the search results
+    '''
+    new_name_list = new_name.split(" ")
+    new_name_format = "+".join(new_name_list)
+    searched_news = search_new(new_name_format)
+    title = f'search results for {new_name}'
+    return render_template('search.html',news = searched_news)

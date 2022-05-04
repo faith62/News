@@ -12,20 +12,47 @@
         {% endif %}
     </head>
     <body>
+
+        <!-- Styles block -->
+
+        {% block styles%}
+        {{ super() }}
+        <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+        {% endblock %}
+
         <!-- Content block -->
         {% block content %}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4 new-card">
+                     <!-- bbc news -->
+                    <h3>BBC NEWS</h3>
+                    <ul>
+                        {{ macro.displayNewList(bbc) }}
+                    </ul>
 
-        <!-- bbc news -->
-        <h3>BBC NEWS</h3>
-        <ul>
-            {{ macro.displayNewList(bbc) }}
-        </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4 new-card">
+                     <!-- bbc sports -->
+                    <h3>CNN NEWS</h3>
+                    <ul>
+                        {{ macro.displayNewList(cnn)}}
+                    </ul>
 
-        <!-- bbc sports -->
-        <h3>BBC SPORTS</h3>
-        <ul>
-            {{ macro.displayNewList(bbcs)}}
-        </ul>
+               </div>
+               <div class="col-xs-12 col-sm-4 col-md-6 col-lg-4 new-card">
+                <!-- bbc sports -->
+               <h3>BUSINESS INSIDER</h3>
+               <ul>
+                   {{ macro.displayNewList(business)}}
+               </ul>
+
+          </div>
+            </div>
+        </div>
+
+      
+       
 
 
         {% endblock%}
