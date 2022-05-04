@@ -1,7 +1,7 @@
 
 from flask import render_template,request,redirect,url_for
 from app import app
-from app.request import get_news, search_new
+from app.requests import get_news, search_new
 
 
 # Views
