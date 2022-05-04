@@ -1,3 +1,4 @@
+{% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
 <!DOCTYPE html>
@@ -11,6 +12,9 @@
         {% endif %}
     </head>
     <body>
+        <!-- Content block -->
+        {% block content %}
+
         <!-- bbc news -->
         <h3>BBC NEWS</h3>
         <ul>
@@ -22,6 +26,9 @@
         <ul>
             {{ macro.displayNewList(bbcs)}}
         </ul>
+
+
+        {% endblock%}
 
     </body>
 </html>
