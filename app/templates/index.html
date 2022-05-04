@@ -1,3 +1,5 @@
+{% import 'macros.html' as macro%}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +11,22 @@
         {% endif %}
     </head>
     <body>
+        <!-- bbc news -->
+        <h3>BBC NEWS</h3>
+        <ul>
+            {% for bbc_new in bbc %}
+                <li>{{ bbc_new.title}}</li>
+            {% endfor%}
+           
+        </ul>
+
+        <!-- bbc sports -->
+        <h3>BBC SPORTS</h3>
+        <ul>
+            {% for bbc_sport in bbcs %}
+                <li>{{ bbc_sport.title}}</li>
+            {% endfor%}
+        </ul>
 
     </body>
 </html>

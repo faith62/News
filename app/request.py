@@ -9,7 +9,7 @@ New = new.New
 api_key = app.config['NEWS_API_KEY']
 
 # Getting the movie base url
-base_url = app.config["MOVIE_API_BASE_URL"]
+base_url = app.config["NEWS_API_BASE_URL"]
 
 def get_news(id):
     '''
