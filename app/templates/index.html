@@ -14,18 +14,13 @@
         <!-- bbc news -->
         <h3>BBC NEWS</h3>
         <ul>
-            {% for bbc_new in bbc %}
-                <li>{{ bbc_new.title}}</li>
-            {% endfor%}
-           
+            {% macro displayNewList(bbc)%}
         </ul>
 
         <!-- bbc sports -->
         <h3>BBC SPORTS</h3>
         <ul>
-            {% for bbc_sport in bbcs %}
-                <li>{{ bbc_sport.title}}</li>
-            {% endfor%}
+            {% macro displayNewList(bbcs)%}
         </ul>
 
     </body>
