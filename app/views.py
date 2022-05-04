@@ -1,7 +1,8 @@
 
-from flask import render_template
+from flask import render_template,request,redirect,url_for
 from app import app
 from app.request import get_news, search_new
+
 
 # Views
 @app.route('/')
@@ -16,7 +17,13 @@ def new():
     cnn_news = get_news('cnn')
     business_news = get_news('business-insider')
     # print(bbc_news)
-    return render_template('index.html', title = title, bbc = bbc_news,cnn = cnn_news,business =business_news)
+
+    search_new = request.args.get('new_query')
+
+    if search_new:
+        return redirect(url_for('search',new_name = search_new))
+    else:       
+        return render_template('index.html', title = title, bbc = bbc_news,cnn = cnn_news,business =business_news)
 
 @app.route('/search/<new_name>')
 def new(new_name):
