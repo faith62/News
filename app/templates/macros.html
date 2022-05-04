@@ -1,7 +1,8 @@
 {% macro displayNewList(new_list)%}
 
     {% for new in new_list %}
-        <li>{{ new_list}}</li>
+        <li>{{ new.title}}</li>
+        <p>{{ new.description}}</p>
     {% endfor %}
 
 {% endmacro %}

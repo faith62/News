@@ -14,7 +14,7 @@ def new():
 
     bbc_news = get_news('bbc-news')
     bbc_sports = get_news('bbc-sport')
-    print(bbc_news)
+    # print(bbc_news)
     return render_template('index.html', title = title, bbc = bbc_news,bbcs = bbc_sports)
 
 # @app.route('/news/<id>')
